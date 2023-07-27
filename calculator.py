@@ -38,10 +38,10 @@ def divide():
 @app.route('/operations/plot', methods=['GET'])
 def plot():
     preParseMathFunction = request.args.get('mathFunction')
-    plottingFunction = mathFunction(preParseMathFunction)
     start = float(request.args.get('start'))
     stop = float(request.args.get('stop'))
-    return plottingFunction.plot(start, stop)
+    plottingFunction = mathFunction(preParseMathFunction, start, stop)
+    return plottingFunction.plot()
 
 @app.route('/test/mathFunction', methods=['GET'])
 def testMathFunction():
